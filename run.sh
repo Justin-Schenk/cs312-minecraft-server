@@ -27,7 +27,7 @@ ansible-playbook -i inventory.ini playbook.yml
 
 echo "=== Waiting for Minecraft server to be ready ==="
 for i in $(seq 1 12); do
-  result=$(nmap -sV -Pn -p T:25565 $PUBLIC_IP | grep "open")
+  result=$(nmap -sV -Pn -p T:25565 $PUBLIC_IP | grep "open" || true)
   if [ -n "$result" ]; then
     echo "Minecraft server is up!"
     break
