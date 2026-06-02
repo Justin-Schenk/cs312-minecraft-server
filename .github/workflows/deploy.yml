@@ -31,7 +31,7 @@ jobs:
 
       - name: Write SSH key
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/labsuser.pem
+          printf '%s' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/labsuser.pem
           chmod 400 ~/labsuser.pem
 
       - name: Make run script executable
