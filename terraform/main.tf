@@ -29,7 +29,7 @@ data "aws_ami" "ubuntu" {
 
 # Security group
 resource "aws_security_group" "minecraft" {
-  name        = "minecraft-sg"
+  name_prefix = "minecraft-sg"
   description = "Allow SSH and Minecraft traffic"
 
   ingress {
