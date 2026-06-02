@@ -1,9 +1,12 @@
 #!/bin/bash
 set -e
 
-echo "=== Provisioning infrastructure with Terraform ==="
+echo "=== Cleaning up any existing infrastructure ==="
 cd terraform
-terraform init
+terraform init -input=false
+terraform destroy -auto-approve || true
+
+echo "=== Provisioning infrastructure with Terraform ==="
 terraform apply -auto-approve
 
 echo "=== Getting instance public IP ==="
